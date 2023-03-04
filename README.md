@@ -1,19 +1,11 @@
-# Subject
-- create simple animation
-- create simple shadow
-- import GLTF file
+# React Three Fiber (R3F) Samples
 
-# References for
-- useRef
-- useFrame
-- useGLTF
-- castShadow
-- receiveShadow
-- directionalLight
+## What is it?
+My collection of sample code of R3F.
 
-# Install
+## Run
     nvm use 18.14.2
     npm run dev
 
-# Notes
+## Notes
 This project used [React Router](https://reactrouter.com/en/main/start/tutorial) to setup the pages navigation.
