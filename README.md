@@ -14,3 +14,6 @@
 # Install
     nvm use 18.14.2
     npm run dev
+
+# Notes
+This project used [React Router](https://reactrouter.com/en/main/start/tutorial) to setup the pages navigation.

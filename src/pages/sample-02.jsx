@@ -1,23 +1,14 @@
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Center, OrbitControls, Environment, useGLTF } from '@react-three/drei'
+import { memo } from 'react'
+import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF } from '@react-three/drei'
 
-export default function App() {
-
-    const suziRef = useRef()
-    const sphereRef = useRef()
-
-    useFrame((state, delta) => {
-        suziRef.current.rotation.y += delta
-        sphereRef.current.position.y = Math.sin(suziRef.current.rotation.y) +1
-    })
+export default function Sample02() {
 
     return <>
         <group position={[0, -0.5, 0]}>
-            <Center top ref={ suziRef }>
+            <Center top>
                 <Suzi rotation={[-0.63, 0, 0]} scale={2} />
             </Center>
-            <Center top position={[-2, 0, 2]} ref={ sphereRef }>
+            <Center top position={[-2, 0, 2]}>
                 <mesh castShadow>
                     <sphereGeometry args={[0.5, 64, 64]} />
                     <meshStandardMaterial color="#9d4b4b" />
@@ -29,16 +20,30 @@ export default function App() {
                     <meshStandardMaterial color="#9d4b4b" />
                 </mesh>
             </Center>
-            <mesh receiveShadow position-y={-0.02} rotation-x={-Math.PI*0.5} scale={10}>
-                <planeGeometry />
-                <meshStandardMaterial color={'#333333'}/>
-            </mesh>
+            <Shadows />
+            <Grid
+                position={[0, -0.01, 0]}
+                cellThickness={1}
+                cellColor={'#6f6f6f'}
+                cellSize={0.5}
+                sectionThickness={1.5}
+                sectionColor={'#9d4b4b'}
+                sectionSize={5}
+                fadeDistance={40}
+                fadeStrength={0.5}
+                infiniteGrid={true}
+            />
         </group>
-        <directionalLight castShadow position={[0, 3, 5]} intensity={0.8} color={"#FF6666"}  />
         <OrbitControls makeDefault />
         <Environment preset="city" />
     </>
 }
+
+const Shadows = memo(() => (
+    <AccumulativeShadows temporal frames={100} color="#9d4b4b" colorBlend={0.5} alphaTest={0.9} scale={20}>
+        <RandomizedLight amount={8} radius={4} position={[5, 5, -10]} />
+    </AccumulativeShadows>
+))
 
 function Suzi(props) {
     const { nodes } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/suzanne-high-poly/model.gltf')
