@@ -1,7 +1,7 @@
 # React Three Fiber (R3F) Samples
 
 ## What is it?
-My collection of sample code of R3F.
+My collection of sample codes of R3F.
 
 ## Run
     nvm use 18.14.2

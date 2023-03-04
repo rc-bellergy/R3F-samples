@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Center, OrbitControls, Environment, useGLTF } from '@react-three/drei'
+import { Center, OrbitControls, Environment, useGLTF, Html } from '@react-three/drei'
 
 export default function Sample01() {
 
@@ -37,6 +37,16 @@ export default function Sample01() {
         <directionalLight castShadow position={[0, 3, 5]} intensity={0.8} color={"#FF6666"} />
         <OrbitControls makeDefault />
         <Environment preset="city" />
+
+        {/* Descriptions */}
+        <Html wrapperClass={'description'} fullscreen>
+            <h3>Sample of</h3>
+            <ul>
+                <li>Simple animation</li>
+                <li>Load GLTF file</li>
+                <li>Simple shadow</li>
+            </ul>
+        </Html>
     </>
 }
 

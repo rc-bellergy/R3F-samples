@@ -132,10 +132,15 @@ i {
     flex: 1;
     /* padding: 0; */
     width: 100%;
-  }
-  
-  #detail.loading {
+}
+
+#detail.loading {
     opacity: 0.25;
     transition: opacity 200ms;
     transition-delay: 200ms;
-  }
+}
+
+#detail .description {
+    color: #e3e3e3;
+    left: 25px !important;
+}

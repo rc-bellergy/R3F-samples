@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF } from '@react-three/drei'
+import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF, Html } from '@react-three/drei'
 
 export default function Sample02() {
 
@@ -36,6 +36,15 @@ export default function Sample02() {
         </group>
         <OrbitControls makeDefault />
         <Environment preset="city" />
+
+        {/* Descriptions */}
+        <Html wrapperClass={'description'} fullscreen>
+            <h3>Sample of</h3>
+            <ul>
+                <li>Grid</li>
+                <li>AccumulativeShadows</li>
+            </ul>
+        </Html>
     </>
 }
 
