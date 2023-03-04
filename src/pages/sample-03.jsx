@@ -12,7 +12,7 @@ const PortalMaterial = shaderMaterial(
     {
         uTime: 0,
         uColorStart: new THREE.Color('#ffffff'),
-        uColorEnd: new THREE.Color('#000000')
+        uColorEnd: new THREE.Color('#9d4b4b')
     },
     portalVertexShader,
     portalFragmentShader
@@ -57,7 +57,9 @@ export default function Sample03() {
         <Html wrapperClass={'description'} fullscreen>
             <h3>Sample of</h3>
             <ul>
-                <li>Custom Shader</li>
+                <li>Create custom shader</li>
+                <li>Import glsl files</li>
+                <li>Animate shader</li>
             </ul>
         </Html>
     </>
