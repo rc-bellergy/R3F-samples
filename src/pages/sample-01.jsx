@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Center, OrbitControls, Environment, useGLTF, Html } from '@react-three/drei'
+import { Center, OrbitControls, Environment, Html } from '@react-three/drei'
+
+import Suzi from '/components/Suzi.jsx'
 
 export default function Sample01() {
 
@@ -48,13 +50,4 @@ export default function Sample01() {
             </ul>
         </Html>
     </>
-}
-
-function Suzi(props) {
-    const { nodes } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/suzanne-high-poly/model.gltf')
-    return (
-        <mesh castShadow receiveShadow geometry={nodes.Suzanne.geometry} {...props}>
-            <meshStandardMaterial color="#9d4b4b" />
-        </mesh>
-    )
 }

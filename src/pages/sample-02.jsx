@@ -1,5 +1,7 @@
 import { memo } from 'react'
-import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF, Html } from '@react-three/drei'
+import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, Html } from '@react-three/drei'
+import Suzi from '/components/Suzi.jsx'
+
 
 export default function Sample02() {
 
@@ -53,12 +55,3 @@ const Shadows = memo(() => (
         <RandomizedLight amount={8} radius={4} position={[5, 5, -10]} />
     </AccumulativeShadows>
 ))
-
-function Suzi(props) {
-    const { nodes } = useGLTF('https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/suzanne-high-poly/model.gltf')
-    return (
-        <mesh castShadow receiveShadow geometry={nodes.Suzanne.geometry} {...props}>
-            <meshStandardMaterial color="#9d4b4b" />
-        </mesh>
-    )
-}
