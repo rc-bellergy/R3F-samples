@@ -140,7 +140,7 @@ i {
     transition-delay: 200ms;
 }
 
-#detail .description {
+.description {
     color: #e3e3e3;
     left: 25px !important;
 }

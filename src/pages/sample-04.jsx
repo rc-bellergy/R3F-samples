@@ -1,9 +1,11 @@
 import { FileLoader } from 'three'
 import { useLoader } from '@react-three/fiber'
-import { OrbitControls, Html } from '@react-three/drei'
+import { OrbitControls, Html, shaderMaterial } from '@react-three/drei'
 import DecodePNG from '../utils/decode_png'
+import vertex from '../shaders/pointcloud/vertex.glsl'
+import fragment from '../shaders/pointcloud/fragment.glsl'
 
-export default function Sample03() {
+export default function Sample04() {
 
     return <>
         <Particles

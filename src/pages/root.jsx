@@ -1,5 +1,7 @@
 import { Outlet, Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
+import { Suspense } from 'react'
+import { Html } from '@react-three/drei'
 
 
 export default function Root() {
@@ -18,12 +20,17 @@ export default function Root() {
                         <li>
                             <Link to={`/samples/03`}>03 Custom Shader</Link>
                         </li>
+                        <li>
+                            <Link to={`/samples/04`}>04 Particles Shader</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>
             <div id="detail">
                 <Canvas shadows camera={{ position: [10, 12, 12], fov: 25 }}>
-                    <Outlet />
+                    <Suspense fallback={<Html wrapperClass={'description'} fullscreen><p>Loading...</p></Html>}>
+                        <Outlet />
+                    </Suspense>
                 </Canvas>
             </div>
         </>

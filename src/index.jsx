@@ -5,11 +5,12 @@ import Root from './pages/root'
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
 
 import ErrorPage from './pages/error-page'
-import Sample01 from './pages/sample-01.jsx'
-import Sample02 from './pages/sample-02.jsx'
-import Sample03 from './pages/sample-03.jsx'
-
 import './style.css'
+
+const Sample01 = React.lazy(() => import('./pages/sample-01.jsx'))
+const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))
+const Sample03 = React.lazy(() => import('./pages/sample-03.jsx'))
+const Sample04 = React.lazy(() => import('./pages/sample-04.jsx'))
 
 const router = createBrowserRouter([
     {
@@ -19,15 +20,23 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'samples/01',
-                element: <Sample01 />
+                element:
+                    <Sample01 />
             },
             {
                 path: 'samples/02',
-                element: <Sample02 />
+                element:
+                    <Sample02 />
             },
             {
                 path: 'samples/03',
-                element: <Sample03 />
+                element:
+                    <Sample03 />
+            },
+            {
+                path: 'samples/04',
+                element:
+                    <Sample04 />
             },
         ],
     },
