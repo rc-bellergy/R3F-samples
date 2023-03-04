@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
 import ErrorPage from './error-page'
 import Sample01 from './pages/sample-01.jsx'
 import Sample02 from './pages/sample-02.jsx'
+import Sample03 from './pages/sample-03.jsx'
 
 import './style.css'
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: 'samples/02',
                 element: <Sample02 />
+            },
+            {
+                path: 'samples/03',
+                element: <Sample03 />
             },
         ],
     },
