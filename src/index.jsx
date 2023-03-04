@@ -1,10 +1,10 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Root from './routes/root'
+import Root from './pages/root'
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
 
-import ErrorPage from './error-page'
+import ErrorPage from './pages/error-page'
 import Sample01 from './pages/sample-01.jsx'
 import Sample02 from './pages/sample-02.jsx'
 import Sample03 from './pages/sample-03.jsx'
