@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Center, OrbitControls, Environment, Html } from '@react-three/drei'
 
-import Suzi from '/components/Suzi.jsx'
+import Suzi from '../components/Suzi'
 
 export default function Sample01() {
 

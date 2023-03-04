@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, Html } from '@react-three/drei'
-import Suzi from '/components/Suzi.jsx'
+import Suzi from '../components/Suzi'
 
 
 export default function Sample02() {

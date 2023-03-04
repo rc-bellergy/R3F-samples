@@ -10,10 +10,10 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to={`/samples/01`}>Sample 01</Link>
+                            <Link to={`/samples/01`}>Simple Animation</Link>
                         </li>
                         <li>
-                            <Link to={`/samples/02`}>Sample 02</Link>
+                            <Link to={`/samples/02`}>Grid & Shadows </Link>
                         </li>
                     </ul>
                 </nav>
