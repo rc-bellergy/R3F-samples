@@ -1,11 +1,16 @@
-import { memo } from 'react'
-import { AccumulativeShadows, RandomizedLight, OrbitControls, Html } from '@react-three/drei'
+import { FileLoader } from 'three'
+import { useLoader } from '@react-three/fiber'
+import { OrbitControls, Html } from '@react-three/drei'
+import DecodePNG from '../utils/decode_png'
 
+export default function Sample03() {
 
-
-export default function Sample02() {
+    // useLoader(FileLoader, '/particles/box-scatter/p_16bit.png', '',  (xhr) => {
+    //     console.log(xhr, (xhr.loaded / xhr.total) * 100 + '% loaded')
+    // })
 
     return <>
+        <File/>
         <OrbitControls makeDefault />
 
         {/* Descriptions */}
@@ -19,8 +24,14 @@ export default function Sample02() {
     </>
 }
 
-const Shadows = memo(() => (
-    <AccumulativeShadows temporal frames={100} color="#9d4b4b" colorBlend={0.5} alphaTest={0.9} scale={20}>
-        <RandomizedLight amount={8} radius={4} position={[5, 5, -10]} />
-    </AccumulativeShadows>
-))
+function File() {
+    const arraybuffer = useLoader(FileLoader,
+        '/particles/box-scatter/p_16bit.png',
+        (loader) => {
+            loader.setResponseType('arraybuffer')
+        }
+    )
+    const decode = new DecodePNG(arraybuffer, 16)
+    console.log(decode)
+    return <></>
+}

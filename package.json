@@ -20,6 +20,7 @@
     "react-dom": "18.2",
     "react-router-dom": "^6.8.2",
     "sort-by": "^1.2.0",
-    "three": "^0.148.0"
+    "three": "^0.148.0",
+    "fast-png": "^6.1.0"
   }
 }
