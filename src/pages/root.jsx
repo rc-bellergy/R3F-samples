@@ -23,6 +23,9 @@ export default function Root() {
                         <li>
                             <Link to={`/samples/04`}>04 Particles Shader</Link>
                         </li>
+                        <li>
+                            <Link to={`/samples/05`}>05 Hover & Click Object</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

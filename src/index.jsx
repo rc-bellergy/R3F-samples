@@ -11,6 +11,7 @@ const Sample01 = React.lazy(() => import('./pages/sample-01.jsx'))
 const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))
 const Sample03 = React.lazy(() => import('./pages/sample-03.jsx'))
 const Sample04 = React.lazy(() => import('./pages/sample-04.jsx'))
+const Sample05 = React.lazy(() => import('./pages/sample-05.jsx'))
 
 const router = createHashRouter([
     {
@@ -38,6 +39,12 @@ const router = createHashRouter([
                 path: 'samples/04',
                 element:
                     <Sample04 />
+            },
+            ,
+            {
+                path: 'samples/05',
+                element:
+                    <Sample05 />
             },
         ],
     },
