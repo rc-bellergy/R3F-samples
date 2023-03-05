@@ -33,6 +33,11 @@ export default function Root() {
                     </Suspense>
                 </Canvas>
             </div>
+            <div id="footer">
+                <p>Craeted by <a href="https://designquest.com.hk">Design Quest Ltd.</a></p>
+                <a href="https://github.com/rc-bellergy/R3F-samples">GitHub source code</a>
+            </div>
+
         </>
     )
 }

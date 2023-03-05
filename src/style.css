@@ -144,3 +144,15 @@ i {
     color: #e3e3e3;
     left: 25px !important;
 }
+
+#footer {
+    z-index: 16448443;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    color: white;
+    font-size: 0.4rem;
+}
+#footer a {
+    color: white;
+}
