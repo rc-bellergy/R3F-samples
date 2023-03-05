@@ -2,31 +2,31 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useFrame, extend } from '@react-three/fiber'
 import { shaderMaterial, OrbitControls, Html, Grid, Center } from '@react-three/drei'
-import portalVertexShader from '../shaders/portal/vertex.glsl'
-import portalFragmentShader from '../shaders/portal/fragment.glsl'
+import vertexShader from '../shaders/matrix/vertex.glsl'
+import fragmentShader from '../shaders/matrix/fragment.glsl'
 import DefaultGrid from '../components/DefaultGrid.jsx'
 
 // Use `vite-plugin-glsl` to import glsl files,
 // https://github.com/UstymUkhman/vite-plugin-glsl#usage
 
-const PortalMaterial = shaderMaterial(
+const MatrixMaterial = shaderMaterial(
     {
-        uTime: 0,
-        uColorStart: new THREE.Color('#ffffff'),
-        uColorEnd: new THREE.Color('#9d4b4b')
+        u_mouse: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
+        u_resolution: { x: window.innerWidth, y: window.innerHeight },
+        u_time: 0.0 
     },
-    portalVertexShader,
-    portalFragmentShader
+    vertexShader,
+    fragmentShader
 )
 
-extend({ PortalMaterial })
+extend({ MatrixMaterial })
 
 export default function Sample03() {
 
-    const portalMaterial = useRef()
+    const matrixMaterial = useRef()
 
     useFrame((state, delta) => {
-        portalMaterial.current.uTime += delta
+        matrixMaterial.current.u_time += delta
     })
 
     return <>
@@ -34,7 +34,7 @@ export default function Sample03() {
         <Center top>
             <mesh scale={3}>
                 <boxGeometry />
-                <portalMaterial ref={portalMaterial} />
+                <matrixMaterial ref={matrixMaterial} />
             </mesh>
         </Center>
 
@@ -48,7 +48,7 @@ export default function Sample03() {
             <h3>Sample of</h3>
             <ul>
                 <li>Create custom shader</li>
-                <li>Import glsl files</li>
+                <li>Import shader (glsl) files</li>
                 <li>Animate shader</li>
             </ul>
         </Html>
