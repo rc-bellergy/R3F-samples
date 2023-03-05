@@ -28,7 +28,7 @@ export default function Root() {
             </div>
             <div id="detail">
                 <Canvas shadows camera={{ position: [10, 12, 12], fov: 25 }}>
-                    <Suspense fallback={<Html wrapperClass={'description'} fullscreen><p>Loading...</p></Html>}>
+                    <Suspense fallback={<Html wrapperClass={'description'} ><p>Loading...</p></Html>}>
                         <Outlet />
                     </Suspense>
                 </Canvas>

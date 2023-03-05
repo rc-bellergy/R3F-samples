@@ -1,8 +1,6 @@
 import * as THREE from 'three'
 import { decode } from "fast-png"
 
-
-
 export default class DecodePNG {
 
     constructor(image, depth = 8) {
