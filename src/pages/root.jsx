@@ -12,6 +12,9 @@ export default function Root() {
                 <nav>
                     <ul>
                         <li>
+                            <Link to={`/`}>00 Introduction</Link>
+                        </li>
+                        <li>
                             <Link to={`/samples/01`}>01 Simple Animation</Link>
                         </li>
                         <li>

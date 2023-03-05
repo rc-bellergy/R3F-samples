@@ -7,6 +7,7 @@ import { createHashRouter, RouterProvider, } from 'react-router-dom'
 import ErrorPage from './pages/error-page'
 import './style.css'
 
+const Introduction = React.lazy(() => import('./pages/introduction.jsx'))
 const Sample01 = React.lazy(() => import('./pages/sample-01.jsx'))
 const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))
 const Sample03 = React.lazy(() => import('./pages/sample-03.jsx'))
@@ -20,6 +21,11 @@ const router = createHashRouter([
         errorElement: <ErrorPage />,
         
         children: [
+            {
+                path: '/',
+                element:
+                    <Introduction />
+            },
             {
                 path: 'samples/01',
                 element:
