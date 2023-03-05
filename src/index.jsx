@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Root from './pages/root'
-import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
+import { createHashRouter, RouterProvider, } from 'react-router-dom'
 
 import ErrorPage from './pages/error-page'
 import './style.css'
@@ -12,11 +12,12 @@ const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))
 const Sample03 = React.lazy(() => import('./pages/sample-03.jsx'))
 const Sample04 = React.lazy(() => import('./pages/sample-04.jsx'))
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <Root />,
         errorElement: <ErrorPage />,
+        
         children: [
             {
                 path: 'samples/01',

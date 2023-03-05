@@ -6,8 +6,8 @@ export default function Sample04() {
     return <>
         <mesh scale={4}>
             <Particles
-                positionFile={'/particles/box-scatter/p_16bit.png'}
-                colorFile={'/particles/box-scatter/color.png'}
+                positionFile={'./particles/box-scatter/p_16bit.png'}
+                colorFile={'./particles/box-scatter/color.png'}
                 particlesSize={90}
             />
         </mesh>
