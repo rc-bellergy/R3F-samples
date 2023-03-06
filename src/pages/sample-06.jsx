@@ -1,41 +1,15 @@
 import { memo } from 'react'
-import { Grid, Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, Html } from '@react-three/drei'
+import { Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, Html, Billboard, Text } from '@react-three/drei'
+
+import DefaultGrid from '../components/DefaultGrid.jsx'
 import Suzi from '../components/Suzi'
 
 
 export default function Sample06() {
 
     return <>
-        <group position={[0, -0.5, 0]}>
-            <Center top>
-                <Suzi rotation={[-0.63, 0, 0]} scale={2} />
-            </Center>
-            <Center top position={[-2, 0, 2]}>
-                <mesh castShadow>
-                    <sphereGeometry args={[0.5, 64, 64]} />
-                    <meshStandardMaterial color="#9d4b4b" />
-                </mesh>
-            </Center>
-            <Center top position={[2.5, 0, 1]}>
-                <mesh castShadow rotation={[0, Math.PI / 4, 0]}>
-                    <boxGeometry args={[0.7, 0.7, 0.7]} />
-                    <meshStandardMaterial color="#9d4b4b" />
-                </mesh>
-            </Center>
-            <Shadows />
-            <Grid
-                position={[0, -0.01, 0]}
-                cellThickness={1}
-                cellColor={'#6f6f6f'}
-                cellSize={0.5}
-                sectionThickness={1.5}
-                sectionColor={'#9d4b4b'}
-                sectionSize={5}
-                fadeDistance={40}
-                fadeStrength={0.5}
-                infiniteGrid={true}
-            />
-        </group>
+        
+        <DefaultGrid/>
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
