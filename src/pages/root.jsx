@@ -29,6 +29,9 @@ export default function Root() {
                         <li>
                             <Link to={`/samples/05`}>05 Hover & Click Object</Link>
                         </li>
+                        <li>
+                            <Link to={`/samples/06`}>06 Testing</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

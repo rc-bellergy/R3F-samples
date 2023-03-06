@@ -1,18 +1,19 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Root from './pages/root'
 import { createHashRouter, RouterProvider, } from 'react-router-dom'
 
-import ErrorPage from './pages/error-page'
+import Root from './pages/root.jsx'
+import Introduction from './pages/introduction.jsx'
+import ErrorPage from './pages/error-page.jsx'
 import './style.css'
 
-const Introduction = React.lazy(() => import('./pages/introduction.jsx'))
 const Sample01 = React.lazy(() => import('./pages/sample-01.jsx'))
 const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))
 const Sample03 = React.lazy(() => import('./pages/sample-03.jsx'))
 const Sample04 = React.lazy(() => import('./pages/sample-04.jsx'))
 const Sample05 = React.lazy(() => import('./pages/sample-05.jsx'))
+const Sample06 = React.lazy(() => import('./pages/sample-06.jsx'))
 
 const router = createHashRouter([
     {
@@ -46,11 +47,15 @@ const router = createHashRouter([
                 element:
                     <Sample04 />
             },
-            ,
             {
                 path: 'samples/05',
                 element:
                     <Sample05 />
+            },
+            {
+                path: 'samples/06',
+                element:
+                    <Sample06 />
             },
         ],
     },
