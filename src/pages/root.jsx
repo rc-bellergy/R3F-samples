@@ -30,7 +30,7 @@ export default function Root() {
                             <Link to={`/samples/05`}>05 Hover & Click Object</Link>
                         </li>
                         <li>
-                            <Link to={`/samples/06`}>06 Testing</Link>
+                            <Link to={`/samples/06`}>06 GLTF to Components</Link>
                         </li>
                     </ul>
                 </nav>
