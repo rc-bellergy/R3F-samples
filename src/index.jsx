@@ -6,7 +6,7 @@ import { createHashRouter, RouterProvider, } from 'react-router-dom'
 import Root from './pages/root.jsx'
 import Introduction from './pages/introduction.jsx'
 import ErrorPage from './pages/error-page.jsx'
-import './style.css'
+import './style.scss'
 
 const Sample01 = React.lazy(() => import('./pages/sample-01.jsx'))
 const Sample02 = React.lazy(() => import('./pages/sample-02.jsx'))

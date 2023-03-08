@@ -9,6 +9,7 @@ Title: (FREE) iPhone 13 Pro 2021
 
 import React, { useRef } from 'react'
 import { useGLTF, useTexture, Html, Center } from '@react-three/drei'
+import './iphone_13_pro.scss'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('./models/iphone_13_pro.glb')

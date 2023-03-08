@@ -33,4 +33,4 @@ https://designquest.com.hk/demo/R3F/#/samples/01
 05 Handle Hover and Click events
 
 ![](public/images/previews/06.jpg)\
-06 gltf to jsx / modify gltf / embed HTML to component
+06 gltf to jsx / modify gltf / embed HTML to component / Using Suspense and Laoding animation

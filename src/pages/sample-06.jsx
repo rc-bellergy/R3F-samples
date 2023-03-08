@@ -1,13 +1,15 @@
-import { OrbitControls, Environment, Html, Center } from '@react-three/drei'
-
-import DefaultGrid from '../components/DefaultGrid.jsx'
+import { OrbitControls, Environment, Html, Center, Svg } from '@react-three/drei'
+import { Suspense } from 'react'
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
+import Loading from '../components/Loading.jsx'
 
 export default function Sample06() {
 
     return <>
-        <Iphone13Pro />
-        {/* <DefaultGrid /> */}
+        <Suspense fallback={<Loading text='Loading iPhone'/>} >
+            <Iphone13Pro />
+        </Suspense>
+        
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
@@ -18,6 +20,7 @@ export default function Sample06() {
                 <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
                 <li>Modify gltf components</li>
                 <li>Embed HTML to components</li>
+                <li>Using Suspense and Laoding animation</li>
             </ul>
         </Html>
     </>
