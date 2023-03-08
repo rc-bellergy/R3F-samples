@@ -139,6 +139,11 @@ i {
     color: white;
 }
 
+.iphone-content {
+    color:white;
+    text-align: center;
+}
+
 #footer {
     z-index: 16448443;
     position: fixed;

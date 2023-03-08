@@ -8,28 +8,36 @@ Title: (FREE) iPhone 13 Pro 2021
 */
 
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useTexture, Html } from '@react-three/drei'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('./models/iphone_13_pro.glb')
+  const texture = useTexture('./textures/iphone-wallpaper.jpg')
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 1.45, 0]} scale={0.04}>
-        <mesh geometry={nodes.Object_4.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Object_5.geometry} material={materials.Black} />
-        <mesh geometry={nodes.Object_6.geometry} material={materials.Back} />
-        <mesh geometry={nodes.Object_7.geometry} material={materials.GOLD} />
-        <mesh geometry={nodes.Object_8.geometry} material={materials.BARRES} />
-        <mesh geometry={nodes.Object_9.geometry} material={materials.Labber} />
-        <mesh geometry={nodes.Object_10.geometry} material={materials.GLASS} />
-        <mesh geometry={nodes.Object_11.geometry} material={materials.Lenscover} />
-        <mesh geometry={nodes.Object_12.geometry} material={materials.material} />
-        <mesh geometry={nodes.Object_13.geometry} material={materials.Display} />
-        {/* <mesh geometry={nodes.Object_13.geometry}>
-          <meshStandardMaterial color={"#ff0000"}/>
-        </mesh> */}
-        <mesh geometry={nodes.Object_14.geometry} material={materials['Lens.2']} />
-        <mesh geometry={nodes.Object_15.geometry} material={materials.material_11} />
+      <group position={[0, 1.45, 0]}>
+        <group scale={0.04}>
+          <mesh geometry={nodes.Object_4.geometry} material={materials['Material.001']} />
+          <mesh geometry={nodes.Object_5.geometry} material={materials.Black} />
+          <mesh geometry={nodes.Object_6.geometry} material={materials.Back} />
+          <mesh geometry={nodes.Object_7.geometry} material={materials.GOLD} />
+          <mesh geometry={nodes.Object_8.geometry} material={materials.BARRES} />
+          <mesh geometry={nodes.Object_9.geometry} material={materials.Labber} />
+          <mesh geometry={nodes.Object_10.geometry} material={materials.GLASS} />
+          <mesh geometry={nodes.Object_11.geometry} material={materials.Lenscover} />
+          <mesh geometry={nodes.Object_12.geometry} material={materials.material} />
+          {/* <mesh geometry={nodes.Object_13.geometry} material={materials.Display} /> */}
+          {/* override original texture */}
+          <mesh geometry={nodes.Object_13.geometry}>
+            <meshStandardMaterial map={texture} />
+          </mesh>
+          <mesh geometry={nodes.Object_14.geometry} material={materials['Lens.2']} />
+          <mesh geometry={nodes.Object_15.geometry} material={materials.material_11} />
+        </group>
+        {/* Add custom content */}
+        <group rotation-y={Math.PI * 0.5} scale={0.5} position-x={0.19}>
+          <Html center transform wrapperClass={"iphone-content"}><h1>1234567890</h1></Html>
+        </group>
       </group>
     </group>
   )
