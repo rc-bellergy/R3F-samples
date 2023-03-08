@@ -1,4 +1,4 @@
-import { OrbitControls, Environment, Html, Center, Svg } from '@react-three/drei'
+import { OrbitControls, Environment, Html, Center, Svg, Float } from '@react-three/drei'
 import { Suspense } from 'react'
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
 import Loading from '../components/Loading.jsx'
@@ -6,10 +6,11 @@ import Loading from '../components/Loading.jsx'
 export default function Sample06() {
 
     return <>
-        <Suspense fallback={<Loading text='Loading iPhone'/>} >
-            <Iphone13Pro />
+        <Suspense fallback={<Loading text='Loading iPhone' />} >
+            <Float>
+                <Iphone13Pro scale={1.5}/>
+            </Float>
         </Suspense>
-        
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
@@ -21,7 +22,11 @@ export default function Sample06() {
                 <li>Modify gltf components</li>
                 <li>Embed HTML to components</li>
                 <li>Using Suspense and Laoding animation</li>
+                <li>Using Float</li>
             </ul>
+            <p className='small-text'>Credit of the model creator:<br/>
+            <a href="https://sketchfab.com/3d-models/free-iphone-13-pro-2021-a35156d91cf44e70a2fdfeade54ae0b2">(FREE) iPhone 13 Pro 2021</a> by <a href="https://sketchfab.com/3Duae">SDC PERFORMANCE™️</a>
+            </p>
         </Html>
     </>
 }
