@@ -6,11 +6,8 @@ import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
 export default function Sample06() {
 
     return <>
-        <Center top>
-            <Iphone13Pro />
-        </Center>
-
-        <DefaultGrid />
+        <Iphone13Pro />
+        {/* <DefaultGrid /> */}
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
