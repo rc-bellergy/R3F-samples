@@ -15,7 +15,9 @@ export default function Sample06() {
         <Html wrapperClass={'description'} fullscreen>
             <h3>Sample of</h3>
             <ul>
-                <li><a href="https://github.com/pmndrs/gltfjsx">gltf to jsx</a></li>
+                <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
+                <li>Modify gltf components</li>
+                <li>Embed HTML to components</li>
             </ul>
         </Html>
     </>
