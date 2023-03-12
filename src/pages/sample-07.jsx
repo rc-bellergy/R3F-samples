@@ -1,13 +1,23 @@
-import { OrbitControls, Environment, Html, Float } from '@react-three/drei'
-import { Suspense } from 'react'
+import { OrbitControls, Environment, Html, Float, Clone } from '@react-three/drei'
+import { useThree } from '@react-three/fiber'
+import { Suspense, useEffect, useRef } from 'react'
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
 import Loading from '../components/Loading.jsx'
 
-export default function Sample06() {
+export default function Sample07() {
+
+    const iphoneRef = useRef()
+    // const state = useThree()
+
+    useEffect(() => {
+        const cloneIphone = <Clone object={iphoneRef.current}/>
+        console.log(cloneIphone)
+        // console.log(state)
+    })
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
-            <Float>
+            <Float ref={iphoneRef}>
                 <Iphone13Pro scale={1.5}/>
             </Float>
         </Suspense>
@@ -18,11 +28,7 @@ export default function Sample06() {
         <Html wrapperClass={'description'} fullscreen>
             <h3>Sample of</h3>
             <ul>
-                <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
-                <li>Modify gltf components</li>
-                <li>Embed HTML to components</li>
-                <li>Using Suspense and Laoding animation</li>
-                <li>Using Float</li>
+                <li>ScrollControl</li>
             </ul>
             <p className='small-text'>Credit of the model creator:<br/>
             <a href="https://sketchfab.com/3d-models/free-iphone-13-pro-2021-a35156d91cf44e70a2fdfeade54ae0b2">(FREE) iPhone 13 Pro 2021</a> by <a href="https://sketchfab.com/3Duae">SDC PERFORMANCE™️</a>

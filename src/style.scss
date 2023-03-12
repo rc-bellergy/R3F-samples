@@ -8,6 +8,10 @@ body,
     background: #303035;
 }
 
+a {
+    color: #e58080;
+}
+
 #sidebar {
     width: 20rem;
     background-color: #f7f7f7;
@@ -144,10 +148,6 @@ i {
     position: fixed;
     right: 5px;
     bottom: 5px;
-    color: white;
-}
-
-#footer a {
     color: white;
 }
 
