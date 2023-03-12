@@ -2,7 +2,7 @@ import { Outlet, Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { Html } from '@react-three/drei'
-
+import { Perf } from 'r3f-perf'
 
 export default function Root() {
     return (
@@ -40,12 +40,15 @@ export default function Root() {
                     <Suspense fallback={<Html wrapperClass={'description'} ><p>Loading...</p></Html>}>
                         <Outlet />
                     </Suspense>
+                    <Perf position="top-right" />
                 </Canvas>
             </div>
             <div id="footer" className='small-text'>
                 <p>Craeted by <a href="https://designquest.com.hk">Design Quest Ltd.</a><br/>
                 <a href="https://github.com/rc-bellergy/R3F-samples">GitHub source code</a></p>
             </div>
+
+            
 
         </>
     )

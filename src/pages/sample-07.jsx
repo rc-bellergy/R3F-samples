@@ -1,19 +1,12 @@
 import { OrbitControls, Environment, Html, Float, Clone } from '@react-three/drei'
-import { useThree } from '@react-three/fiber'
-import { Suspense, useEffect, useRef } from 'react'
+import { Suspense, useRef } from 'react'
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
 import Loading from '../components/Loading.jsx'
+
 
 export default function Sample07() {
 
     const iphoneRef = useRef()
-    // const state = useThree()
-
-    useEffect(() => {
-        const cloneIphone = <Clone object={iphoneRef.current}/>
-        console.log(cloneIphone)
-        // console.log(state)
-    })
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
@@ -34,5 +27,6 @@ export default function Sample07() {
             <a href="https://sketchfab.com/3d-models/free-iphone-13-pro-2021-a35156d91cf44e70a2fdfeade54ae0b2">(FREE) iPhone 13 Pro 2021</a> by <a href="https://sketchfab.com/3Duae">SDC PERFORMANCE™️</a>
             </p>
         </Html>
+
     </>
 }
