@@ -1,31 +1,40 @@
-import { OrbitControls, Environment, Html, Float, Clone } from '@react-three/drei'
-import { Suspense, useRef } from 'react'
-import { Model as Iphone13Pro } from '../components/Iphone_13_pro.jsx'
+import * as THREE from "three"
+import { OrbitControls, Environment, Html, PivotControls } from '@react-three/drei'
+import { Suspense, useRef, useState } from 'react'
+import { Model as Iphone13Pro } from '../components/Iphone_13_pro_mod.jsx'
 import Loading from '../components/Loading.jsx'
 
 
 export default function Sample07() {
 
-    const iphoneRef = useRef()
+    const iPhoneRef = useRef()
+
+    const [rotation, setRotation] = useState({})
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
-            <Float ref={iphoneRef}>
-                <Iphone13Pro scale={1.5}/>
-            </Float>
+            <PivotControls
+                onDrag={(l, dl, w, dw) => {
+                    // Extract the position and rotation
+                    const position = new THREE.Vector3()
+                    const rotation = new THREE.Quaternion()
+                    w.decompose(position, rotation, new THREE.Vector3())
+                    console.log(rotation)
+                }}>
+                <Iphone13Pro scale={1.5} />
+            </PivotControls>
         </Suspense>
-        <OrbitControls makeDefault />
+        {/* <OrbitControls makeDefault /> */}
         <Environment preset="city" />
 
         {/* Descriptions */}
         <Html wrapperClass={'description'} fullscreen>
             <h3>Sample of</h3>
             <ul>
-                <li>ScrollControl</li>
+                <li>PivotControls</li>
+                <li>Get PivotControls position and rotation</li>
             </ul>
-            <p className='small-text'>Credit of the model creator:<br/>
-            <a href="https://sketchfab.com/3d-models/free-iphone-13-pro-2021-a35156d91cf44e70a2fdfeade54ae0b2">(FREE) iPhone 13 Pro 2021</a> by <a href="https://sketchfab.com/3Duae">SDC PERFORMANCE™️</a>
-            </p>
+            <p>{data}</p>
         </Html>
 
     </>
