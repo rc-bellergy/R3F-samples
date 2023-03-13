@@ -4,22 +4,27 @@ import { Suspense, useRef, useState } from 'react'
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro_mod.jsx'
 import Loading from '../components/Loading.jsx'
 
+// References:
+// Understanding quaternions
+// https://eater.net/quaternions
 
 export default function Sample07() {
 
     const iPhoneRef = useRef()
 
-    const [rotation, setRotation] = useState({})
+    const [data, setData] = useState('')
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
             <PivotControls
+                depthTest={false}
                 onDrag={(l, dl, w, dw) => {
-                    // Extract the position and rotation
+                    // Extract the position, rotation ans scale
                     const position = new THREE.Vector3()
-                    const rotation = new THREE.Quaternion()
-                    w.decompose(position, rotation, new THREE.Vector3())
-                    console.log(rotation)
+                    const quaternion = new THREE.Quaternion()
+                    const scale = new THREE.Vector3()
+                    w.decompose(position, quaternion, scale)
+                    setData(`x:${quaternion.x}, y:${quaternion.y}, z:${quaternion.z}, w:${quaternion.w}`)
                 }}>
                 <Iphone13Pro scale={1.5} />
             </PivotControls>
@@ -32,8 +37,9 @@ export default function Sample07() {
             <h3>Sample of</h3>
             <ul>
                 <li>PivotControls</li>
-                <li>Get PivotControls position and rotation</li>
+                <li>Extract rotation from PivotControls</li>
             </ul>
+            <h3>quaternion:</h3>
             <p>{data}</p>
         </Html>
 
