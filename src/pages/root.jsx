@@ -32,6 +32,9 @@ export default function Root() {
                         <li>
                             <Link to={`/samples/06`}>06 GLTF to Components</Link>
                         </li>
+                        <li>
+                            <Link to={`/samples/07`}>07 PivotControls</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

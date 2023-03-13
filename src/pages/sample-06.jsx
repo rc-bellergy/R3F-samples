@@ -24,9 +24,6 @@ export default function Sample06() {
                 <li>Using Suspense and show Loading...</li>
                 <li>Using Float</li>
             </ul>
-            <p className='small-text'>Credit of the model creator:<br/>
-            <a href="https://sketchfab.com/3d-models/free-iphone-13-pro-2021-a35156d91cf44e70a2fdfeade54ae0b2">(FREE) iPhone 13 Pro 2021</a> by <a href="https://sketchfab.com/3Duae">SDC PERFORMANCE™️</a>
-            </p>
         </Html>
     </>
 }
