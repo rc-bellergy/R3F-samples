@@ -20,7 +20,13 @@ export function Model(props) {
   
   const scroll = useScroll()
   useFrame((state, delta) => {
-    iPhoneRef.current.rotation.y = scroll.offset * 5
+    const r1 = scroll.range(0 / 3, 1 / 3)
+    const r2 = scroll.range(1 / 3, 2 / 3)
+    const r3 = scroll.range(2 / 3, 3 / 3)
+    iPhoneRef.current.rotation.y = r1 * Math.PI
+    iPhoneRef.current.rotation.x = r2 * Math.PI
+    iPhoneRef.current.rotation.z = r3 * Math.PI
+    console.log(r1,r2,r3)
   })
 
   return <>
