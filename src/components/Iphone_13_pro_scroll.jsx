@@ -8,13 +8,23 @@ Title: (FREE) iPhone 13 Pro 2021
 */
 
 import React, { useRef } from 'react'
-import { useGLTF, Center } from '@react-three/drei'
+import { useGLTF, Center, useScroll, Scroll } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+
+
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('./models/iphone_13_pro.glb')
 
-  return (
-    <group {...props} dispose={null}>
+  const iPhoneRef = useRef()
+  const { nodes, materials } = useGLTF('./models/iphone_13_pro.glb')
+  
+  const scroll = useScroll()
+  useFrame((state, delta) => {
+    iPhoneRef.current.rotation.y = scroll.offset * 5
+  })
+
+  return <>
+    <group {...props} dispose={null} ref={iPhoneRef}>
       <group scale={0.05}>
         <Center>
           <mesh geometry={nodes.Object_4.geometry} material={materials['Material.001']} />
@@ -32,7 +42,7 @@ export function Model(props) {
         </Center>
       </group>
     </group>
-  )
+  </>
 }
 
 useGLTF.preload('./models/iphone_13_pro.glb')
