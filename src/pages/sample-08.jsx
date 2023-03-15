@@ -1,7 +1,7 @@
 import { Environment, Html, ScrollControls, OrbitControls } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { Suspense, useRef, useEffect } from 'react'
-import * as THREE from 'three'
+import { useControls } from 'leva'
 
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro_scroll.jsx'
 import Loading from '../components/Loading.jsx'
@@ -10,17 +10,27 @@ import DefaultGrid from '../components/DefaultGrid.jsx'
 
 export default function Sample08() {
 
-    // Override 
-    const set = useThree((state) => state.set)
-    const camera = new THREE.PerspectiveCamera(25)
-    camera.positionZ = 10
-    
-    useEffect(() => {
-        set({ 
-            camera: camera
-        })
-        console.log('Override camera')
-      }, [])
+    const leva = useControls({
+        positionX:{
+            value:10,
+            min:0,
+            max:20
+        },
+        positionY:{
+            value:12,
+            min:0,
+            max:20
+        },
+        positionZ:{
+            value:12,
+            min:0,
+            max:20
+        }
+    })
+
+    // Get camera and update it 
+    const camera = useThree(state => state.camera)
+    camera.position.set(leva.positionX, leva.positionY, leva.positionZ)
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
@@ -31,7 +41,7 @@ export default function Sample08() {
 
         <DefaultGrid />
 
-        <OrbitControls makeDefault />
+        {/* <OrbitControls makeDefault /> */}
 
         <Environment preset="city" />
 
@@ -39,6 +49,8 @@ export default function Sample08() {
         <Html wrapperClass={'description'} fullscreen>
             <h3>Sample of</h3>
             <ul>
+                <li>Get the camera</li>
+                <li>Use Leva</li>
                 <li>ScrollControls</li>
             </ul>
         </Html>

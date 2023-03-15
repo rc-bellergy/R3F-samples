@@ -1,7 +1,6 @@
-import * as THREE from 'three'
 import { useRef } from 'react'
 import { useFrame, extend } from '@react-three/fiber'
-import { shaderMaterial, OrbitControls, Html, Grid, Center } from '@react-three/drei'
+import { shaderMaterial, OrbitControls, Html, Center } from '@react-three/drei'
 import vertexShader from '../shaders/matrix/vertex.glsl'
 import fragmentShader from '../shaders/matrix/fragment.glsl'
 import DefaultGrid from '../components/DefaultGrid.jsx'

@@ -43,15 +43,13 @@ export default function Root() {
                     <Suspense fallback={<Html wrapperClass={'description'} ><p>Loading...</p></Html>}>
                         <Outlet />
                     </Suspense>
-                    <Perf position="top-right" />
+                    <Perf position="bottom-left" />
                 </Canvas>
             </div>
             <div id="footer" className='small-text'>
                 <p>Craeted by <a href="https://designquest.com.hk">Design Quest Ltd.</a><br/>
                 <a href="https://github.com/rc-bellergy/R3F-samples">GitHub source code</a></p>
             </div>
-
-            
 
         </>
     )

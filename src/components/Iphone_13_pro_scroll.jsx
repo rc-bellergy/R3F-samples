@@ -11,8 +11,6 @@ import React, { useRef } from 'react'
 import { useGLTF, Center, useScroll, Scroll } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
-
-
 export function Model(props) {
 
   const iPhoneRef = useRef()
@@ -26,7 +24,7 @@ export function Model(props) {
     iPhoneRef.current.rotation.y = r1 * Math.PI
     iPhoneRef.current.rotation.x = r2 * Math.PI
     iPhoneRef.current.rotation.z = r3 * Math.PI
-    console.log(r1,r2,r3)
+    // console.log(r1,r2,r3)
   })
 
   return <>
