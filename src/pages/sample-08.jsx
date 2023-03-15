@@ -1,11 +1,26 @@
-import { Environment, Html, ScrollControls } from '@react-three/drei'
-import { Suspense, useRef } from 'react'
+import { Environment, Html, ScrollControls, OrbitControls } from '@react-three/drei'
+import { useThree } from '@react-three/fiber'
+import { Suspense, useRef, useEffect } from 'react'
+import * as THREE from 'three'
+
 import { Model as Iphone13Pro } from '../components/Iphone_13_pro_scroll.jsx'
 import Loading from '../components/Loading.jsx'
 import DefaultGrid from '../components/DefaultGrid.jsx'
 
 
 export default function Sample08() {
+
+    // Override 
+    const set = useThree((state) => state.set)
+    const camera = new THREE.PerspectiveCamera(25)
+    camera.positionZ = 10
+    
+    useEffect(() => {
+        set({ 
+            camera: camera
+        })
+        console.log('Override camera')
+      }, [])
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
@@ -15,6 +30,8 @@ export default function Sample08() {
         </Suspense>
 
         <DefaultGrid />
+
+        <OrbitControls makeDefault />
 
         <Environment preset="city" />
 
