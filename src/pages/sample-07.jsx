@@ -5,6 +5,7 @@ import { Model as Iphone13Pro } from '../components/Iphone_13_pro_mod.jsx'
 import Loading from '../components/Loading.jsx'
 import DefaultGrid from '../components/DefaultGrid.jsx'
 
+// 
 
 // References:
 // Understanding quaternions
@@ -14,7 +15,7 @@ export default function Sample07() {
 
     const iPhoneRef = useRef()
 
-    const [data, setData] = useState(new THREE.Quaternion())
+    const [quaternion, setQuaternion] = useState(new THREE.Quaternion())
 
     return <>
         <Suspense fallback={<Loading text='Loading iPhone' />} >
@@ -26,26 +27,29 @@ export default function Sample07() {
                     const quaternion = new THREE.Quaternion()
                     const scale = new THREE.Vector3()
                     w.decompose(position, quaternion, scale)
-                    setData(quaternion)
+                    setQuaternion(quaternion)
                 }}>
                 <Iphone13Pro scale={1.5} />
             </PivotControls>
         </Suspense>
 
-        <Center bottom>
-            <DefaultGrid />
-        </Center>
+        <mesh position={[0,0,3]} quaternion={quaternion}>
+            <boxGeometry/>
+            <meshStandardMaterial color={'#FF82A9'}/>
+        </mesh>
+
+        <DefaultGrid />
 
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
         {/* Descriptions */}
-        <Html wrapperClass={'description'} fullscreen>
-            <p>quaternion:</p>
-            <p> {`x:${data.x}`}<br/>
-                {`y:${data.y}`}<br/>
-                {`z:${data.z}`}<br/>
-                {`w:${data.w}`}</p>
+        <Html wrapperClass={'drei-html'} style={{ left: "100px" }} >
+            <h3>Quaternion</h3>
+            <p> {`x:${quaternion.x}`}<br/>
+                {`y:${quaternion.y}`}<br/>
+                {`z:${quaternion.z}`}<br/>
+                {`w:${quaternion.w}`}</p>
         </Html>
 
     </>

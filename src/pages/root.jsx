@@ -26,47 +26,48 @@ export default function Root() {
                         <li className={'page-title'}>
                             <NavLink to={`/samples/02`}>02 Grid & Shadows</NavLink>
                             <ul>
-                <li>Grid</li>
-                <li>AccumulativeShadows</li>
-            </ul>
+                                <li>Grid</li>
+                                <li>AccumulativeShadows</li>
+                            </ul>
                         </li>
                         <li className={'page-title'}>
                             <NavLink to={`/samples/03`}>03 Custom Shader</NavLink>
                             <ul>
-                <li>Create custom shader</li>
-                <li>Import shader (glsl) files</li>
-                <li>Animate shader</li>
-            </ul>
+                                <li>Create custom shader</li>
+                                <li>Import shader (glsl) files</li>
+                                <li>Animate shader</li>
+                            </ul>
                         </li >
                         <li className={'page-title'}>
                             <NavLink to={`/samples/04`}>04 Particles Shader</NavLink>
                             <ul>
-                <li>Load particles position and color data form PNG files</li>
-                <li>Render particles with custom ParticlesShader</li>
-            </ul>
+                                <li>Load particles position and color data form PNG files</li>
+                                <li>Render particles with custom ParticlesShader</li>
+                            </ul>
                         </li>
                         <li className={'page-title'}>
                             <NavLink to={`/samples/05`}>05 Hover & Click Object</NavLink>
                             <ul>
-                <li>Hover and Click events</li>
-            </ul>
+                                <li>Hover and Click events</li>
+                            </ul>
                         </li>
                         <li className={'page-title'}>
                             <NavLink to={`/samples/06`}>06 GLTF to Components</NavLink>
                             <ul>
-                <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
-                <li>Modify gltf components</li>
-                <li>Embed HTML to components</li>
-                <li>Using Suspense and show Loading...</li>
-                <li>Using Float</li>
-            </ul>
+                                <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
+                                <li>Modify gltf components</li>
+                                <li>Embed HTML to components</li>
+                                <li>Using Suspense and show Loading...</li>
+                                <li>Using Float</li>
+                            </ul>
                         </li>
                         <li className={'page-title'}>
                             <NavLink to={`/samples/07`}>07 PivotControls</NavLink>
                             <ul>
-                <li>PivotControls</li>
-                <li>Extract rotation from PivotControls</li>
-            </ul>
+                                <li>PivotControls</li>
+                                <li>Extract rotation from PivotControls</li>
+                                <li>Copy rotation from one object to other</li>
+                            </ul>
                         </li>
                     </ul>
                     {/* Back to Mian menu */}
