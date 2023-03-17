@@ -165,5 +165,5 @@ export default function Particles(props) {
         shaderMaterial.uniforms.uTime.value += delta
     })
 
-    return <primitive object={particlesObject} />
+    return <primitive object={particlesObject} {...props} />
 }

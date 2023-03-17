@@ -5,11 +5,11 @@ import DefaultGrid from '../components/DefaultGrid.jsx'
 export default function Sample04() {
 
     return <>
-        <mesh scale={4}>
+        <mesh scale={20}>
             <Particles
-                positionFile={'./particles/box-scatter/p_16bit.png'}
-                colorFile={'./particles/box-scatter/color.png'}
-                particlesSize={90}
+                positionFile={'./particles/big-buddha/p_16bit.png'}
+                colorFile={'./particles/big-buddha/color.png'}
+                particlesSize={50}
             />
         </mesh>
 
