@@ -42,14 +42,5 @@ export default function Sample03() {
         <directionalLight castShadow position={[0, 3, 5]} intensity={0.8} color={"#FF6666"} />
         <OrbitControls makeDefault />
 
-        {/* Descriptions */}
-        <Html wrapperClass={'description'} fullscreen>
-            <h3>Sample of</h3>
-            <ul>
-                <li>Create custom shader</li>
-                <li>Import shader (glsl) files</li>
-                <li>Animate shader</li>
-            </ul>
-        </Html>
     </>
 }

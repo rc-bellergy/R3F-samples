@@ -19,13 +19,6 @@ export default function Sample01() {
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
-        {/* Descriptions */}
-        <Html wrapperClass={'description'} fullscreen>
-            <h3>Sample of</h3>
-            <ul>
-                <li>Hover and Click events</li>
-            </ul>
-        </Html>
     </>
 }
 

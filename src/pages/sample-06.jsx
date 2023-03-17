@@ -14,16 +14,5 @@ export default function Sample06() {
         <OrbitControls makeDefault />
         <Environment preset="city" />
 
-        {/* Descriptions */}
-        <Html wrapperClass={'description'} fullscreen>
-            <h3>Sample of</h3>
-            <ul>
-                <li><a href="https://github.com/pmndrs/gltfjsx">Using gltf to jsx</a></li>
-                <li>Modify gltf components</li>
-                <li>Embed HTML to components</li>
-                <li>Using Suspense and show Loading...</li>
-                <li>Using Float</li>
-            </ul>
-        </Html>
     </>
 }

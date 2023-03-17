@@ -17,14 +17,6 @@ export default function Sample04() {
 
         <OrbitControls makeDefault />
 
-        {/* Descriptions */}
-        <Html wrapperClass={'description'} fullscreen>
-            <h3>Sample of</h3>
-            <ul>
-                <li>Load particles position and color data form PNG files</li>
-                <li>Render particles with custom ParticlesShader</li>
-            </ul>
-        </Html>
     </>
 }
 

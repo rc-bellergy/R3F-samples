@@ -41,11 +41,6 @@ export default function Sample07() {
 
         {/* Descriptions */}
         <Html wrapperClass={'description'} fullscreen>
-            <h3>Sample of</h3>
-            <ul>
-                <li>PivotControls</li>
-                <li>Extract rotation from PivotControls</li>
-            </ul>
             <p>quaternion:</p>
             <p> {`x:${data.x}`}<br/>
                 {`y:${data.y}`}<br/>
