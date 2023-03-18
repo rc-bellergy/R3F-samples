@@ -1,6 +1,6 @@
-import { Environment, Html, ScrollControls, OrbitControls, AccumulativeShadows, RandomizedLight, SoftShadows, PivotControls } from '@react-three/drei'
+import { Environment, OrbitControls, SoftShadows } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
-import { Suspense, useRef, useEffect, memo } from 'react'
+import { Suspense } from 'react'
 import { useControls } from 'leva'
 
 import { Model as Kuma } from '../components/Kuma.jsx'

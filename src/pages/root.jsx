@@ -16,7 +16,7 @@ export default function Root() {
                     {/* Main menu */}
                     <div hidden={href != '#/'}>
                         <h1>React Three Fiber (R3F) Samples Collection</h1>
-                        <p>My collection of sample codes of <a href='https://docs.pmnd.rs/react-three-fiber/api/canvas'>R3F</a> and <a href='https://github.com/pmndrs/drei'>drei</a>.</p>
+                        <p><a href='https://docs.pmnd.rs/react-three-fiber/api/canvas'>R3F</a> and <a href='https://github.com/pmndrs/drei'>drei</a> code samples.</p>
                         <ul>
                             <li className={'page-title'}>
                                 <NavLink to={`/samples/01`}>01 Simple Animation</NavLink>
@@ -75,8 +75,9 @@ export default function Root() {
                             <li className={'page-title'}>
                                 <NavLink to={`/samples/08`}>08 Animation in gltf</NavLink>
                                 <ul>
-                                    <li>drei: useAnimation</li>
+                                    <li>three: fog</li>
                                     <li>fiber: useThree get Camera</li>
+                                    <li>drei: useAnimation</li>
                                     <li>drei: SoftShadows</li>
                                     <li>leva: useControls</li>
                                 </ul>
