@@ -14,9 +14,9 @@ import { useFrame } from '@react-three/fiber'
 
 
 export function Model(props) {
-  const group = useRef()
+  const kima = useRef()
   const { nodes, materials, animations } = useGLTF('./models/kuma_heavy_robot_r-9000s-transformed.glb')
-  const { actions } = useAnimations(animations, group)
+  const { actions } = useAnimations(animations, kima)
   const scroll = useScroll()
 
   // Init animation
@@ -27,14 +27,13 @@ export function Model(props) {
   // update animation by scroll
   useFrame((state, delta) => {
     const action = actions.Track
-    const offset = 1 - scroll.offset
+    const offset = 1 - scroll.offset // offset: 1-0
     action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-
     console.log(offset)
   })
 
   return <>
-    <group ref={group} {...props} dispose={null} scale={0.003}>
+    <group ref={kima} {...props} dispose={null} scale={0.003}>
       <group name="Armature" position={[-866.65, 1714.41, 8.21]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
         <primitive object={nodes._rootJoint} />
         <skinnedMesh name="skin" castShadow receiveShadow geometry={nodes.Object_19.geometry} material={materials['Material.002']} skeleton={nodes.Object_19.skeleton} />
