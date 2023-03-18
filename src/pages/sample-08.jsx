@@ -14,11 +14,18 @@ export default function Sample08() {
     const camera = useThree(state => state.camera)
     camera.position.set(15, 22, 20)
 
-    const { enabled, ...config } = useControls({
+    const softShadowsConfig = useControls('SoftShadows',{
         enabled: true,
         size: { value: 25, min: 0, max: 100 },
         focus: { value: 0, min: 0, max: 2 },
         samples: { value: 10, min: 1, max: 20, step: 1 }
+    })
+
+    const fogConfig  = useControls('Fog',{
+        enabled: true,
+        color: '#86827c',
+        near: { value:27, min: 0, max:100 },
+        far: { value:40, min: 0, max:100 }
     })
 
     return <>
@@ -33,9 +40,8 @@ export default function Sample08() {
             <meshLambertMaterial />
         </mesh>
 
-
         {/* SoftShadows */}
-        {enabled && <SoftShadows {...config} />}
+        {softShadowsConfig.enabled && <SoftShadows {...softShadowsConfig} />}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
             <planeGeometry args={[100, 100]} />
             <shadowMaterial transparent opacity={0.4} />
@@ -44,6 +50,9 @@ export default function Sample08() {
             <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
         </directionalLight>
         <ambientLight intensity={0.5} />
+
+
+        {fogConfig.enabled && <fog attach="fog" args={[fogConfig.color, fogConfig.near, fogConfig.far]} />}
 
         <DefaultGrid sectionColor={'#7f6f6f'} fadeDistance={50} />
 
