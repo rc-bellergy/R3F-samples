@@ -1,4 +1,4 @@
-import { Environment, OrbitControls, SoftShadows } from '@react-three/drei'
+import { Environment, OrbitControls, SoftShadows, ScrollControls } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { useControls } from 'leva'
@@ -14,26 +14,28 @@ export default function Sample08() {
     const camera = useThree(state => state.camera)
     camera.position.set(15, 22, 20)
 
-    const softShadowsConfig = useControls('SoftShadows',{
+    const softShadowsConfig = useControls('SoftShadows', {
         enabled: true,
         size: { value: 25, min: 0, max: 100 },
         focus: { value: 0, min: 0, max: 2 },
         samples: { value: 10, min: 1, max: 20, step: 1 }
     })
 
-    const fogConfig  = useControls('Fog',{
+    const fogConfig = useControls('Fog', {
         enabled: true,
         color: '#86827c',
-        near: { value:27, min: 0, max:100 },
-        far: { value:40, min: 0, max:100 }
+        near: { value: 27, min: 0, max: 100 },
+        far: { value: 40, min: 0, max: 100 }
     })
 
     return <>
 
-        {/* Animation model */}
-        <Suspense fallback={<Loading text='Loading model' />} >
-            <Kuma position={[0, 5.2, 0]} />
-        </Suspense>
+        {/* Scroll animation model */}
+        <ScrollControls pages={2}>{/* When set pages=2, we have (0-2) total 3 pages */}
+            <Suspense fallback={<Loading text='Loading model' />} >
+                <Kuma position={[0, 5.2, 0]} />
+            </Suspense>
+        </ScrollControls>
 
         <mesh receiveShadow position={[-1, 0.5, -2]}>
             <boxGeometry args={[1, 1, 4]} />
@@ -51,17 +53,18 @@ export default function Sample08() {
         </directionalLight>
         <ambientLight intensity={0.5} />
 
-
+        {/* Fog */}
         {fogConfig.enabled && <fog attach="fog" args={[fogConfig.color, fogConfig.near, fogConfig.far]} />}
 
         <DefaultGrid sectionColor={'#7f6f6f'} fadeDistance={50} />
 
-        <OrbitControls autoRotate autoRotateSpeed={0.5}
+        <Environment preset="sunset" background blur={0.7} />
+
+        <OrbitControls autoRotate autoRotateSpeed={-0.5}
             enablePan={false} enableZoom={false}
             minPolarAngle={Math.PI / 3.5} maxPolarAngle={Math.PI / 2.1}
         />
 
-        <Environment preset="sunset" background blur={0.7} />
 
     </>
 }
