@@ -1,6 +1,6 @@
 import { Grid } from '@react-three/drei'
 
-export default function DefaultGrid() {
+export default function DefaultGrid(props) {
     return <Grid
         position={[0, -0.01, 0]}
         cellThickness={1}
@@ -12,5 +12,6 @@ export default function DefaultGrid() {
         fadeDistance={40}
         fadeStrength={0.5}
         infiniteGrid={true}
+        {...props}
     />
 }

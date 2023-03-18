@@ -75,7 +75,10 @@ export default function Root() {
                             <li className={'page-title'}>
                                 <NavLink to={`/samples/08`}>08 Animation in gltf</NavLink>
                                 <ul>
-                                    <li>useAnimation</li>
+                                    <li>drei: useAnimation</li>
+                                    <li>fiber: useThree get Camera</li>
+                                    <li>drei: SoftShadows</li>
+                                    <li>leva: useControls</li>
                                 </ul>
                             </li>
                         </ul>

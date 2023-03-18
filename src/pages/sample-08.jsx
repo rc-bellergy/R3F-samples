@@ -1,4 +1,4 @@
-import { Environment, Html, ScrollControls, OrbitControls, AccumulativeShadows, RandomizedLight } from '@react-three/drei'
+import { Environment, Html, ScrollControls, OrbitControls, AccumulativeShadows, RandomizedLight, SoftShadows, PivotControls } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { Suspense, useRef, useEffect, memo } from 'react'
 import { useControls } from 'leva'
@@ -12,21 +12,45 @@ export default function Sample08() {
 
     // Get camera and update it 
     const camera = useThree(state => state.camera)
-    camera.position.set(15,22,20)
+    camera.position.set(15, 22, 20)
+
+    const { enabled, ...config } = useControls({
+        enabled: true,
+        size: { value: 25, min: 0, max: 100 },
+        focus: { value: 0, min: 0, max: 2 },
+        samples: { value: 10, min: 1, max: 20, step: 1 }
+    })
 
     return <>
+
+        {/* Animation model */}
         <Suspense fallback={<Loading text='Loading model' />} >
-            <Kuma position={[0, 5.2, 0]}/>
+            <Kuma position={[0, 5.2, 0]} />
         </Suspense>
 
-        <AccumulativeShadows temporal frames={100} color="#9d4b4b" colorBlend={0.5} alphaTest={0.9} scale={20}>
-            <RandomizedLight amount={8} radius={4} position={[5, 3, -5]} />
-        </AccumulativeShadows>
+        <mesh receiveShadow position={[-1, 0.5, -2]}>
+            <boxGeometry args={[1, 1, 4]} />
+            <meshLambertMaterial />
+        </mesh>
 
-        <OrbitControls autoRotate autoRotateSpeed={0.5} 
-            enablePan={false} enableZoom={false} 
-            minPolarAngle={Math.PI / 2.1} maxPolarAngle={Math.PI / 2.1}
-            />
+
+        {/* SoftShadows */}
+        {enabled && <SoftShadows {...config} />}
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+            <planeGeometry args={[100, 100]} />
+            <shadowMaterial transparent opacity={0.4} />
+        </mesh>
+        <directionalLight castShadow position={[2.5, 8, 5]} intensity={1.5} shadow-mapSize={1024}>
+            <orthographicCamera attach="shadow-camera" args={[-10, 10, -10, 10, 0.1, 50]} />
+        </directionalLight>
+        <ambientLight intensity={0.5} />
+
+        <DefaultGrid sectionColor={'#7f6f6f'} fadeDistance={50} />
+
+        <OrbitControls autoRotate autoRotateSpeed={0.5}
+            enablePan={false} enableZoom={false}
+            minPolarAngle={Math.PI / 3.5} maxPolarAngle={Math.PI / 2.1}
+        />
 
         <Environment preset="sunset" background blur={0.7} />
 
