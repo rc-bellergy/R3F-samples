@@ -23,15 +23,18 @@ export default function Sample08() {
 
     const fogConfig = useControls('Fog', {
         enabled: true,
-        color: '#86827c',
-        near: { value: 27, min: 0, max: 100 },
+        color: '#626262',
+        near: { value: 33, min: 0, max: 100 },
         far: { value: 40, min: 0, max: 100 }
     })
 
     return <>
 
-        {/* Scroll animation model */}
-        <ScrollControls pages={2}>{/* When set pages=2, we have (0-2) total 3 pages */}
+        {/* Scroll animation model:
+            - ScrollControls is the parent component that contained the animated models
+            - The animation defined in the <Kuma> model
+            */}
+        <ScrollControls pages={2}>{/* When set pages=2, we have (0-2) total 3 pages (vh) */}
             <Suspense fallback={<Loading text='Loading model' />} >
                 <Kuma position={[0, 5.2, 0]} />
             </Suspense>

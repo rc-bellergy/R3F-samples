@@ -11,7 +11,7 @@ import * as THREE from 'three'
 import React, { useRef, useEffect } from 'react'
 import { useGLTF, useAnimations, useScroll, Html } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-
+import { useControls } from 'leva'
 
 export function Model(props) {
   const kima = useRef()
@@ -19,17 +19,22 @@ export function Model(props) {
   const { actions } = useAnimations(animations, kima)
   const scroll = useScroll()
 
+  // Show the scroll offset to Leva control
+  // https://github.com/pmndrs/leva/blob/main/docs/advanced/controlled-inputs.md#set
+  const [{ offset }, set] = useControls('Scroll', () => ( {
+    offset: 0
+  }))
+
   // Init animation
   useEffect(() => {
     actions.Track.play().paused = true
-  })
+  }, [])
 
   // update animation by scroll
   useFrame((state, delta) => {
     const action = actions.Track
-    const offset = 1 - scroll.offset // offset: 1-0
+    set({ offset: 1 - scroll.offset }) // offset: 1-0
     action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-    console.log(offset)
   })
 
   return <>

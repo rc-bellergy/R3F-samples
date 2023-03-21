@@ -15,6 +15,10 @@ a {
 
 }
 
+#leva__root {
+    z-index: 16448500;
+}
+
 #index {
     z-index: 16448444;
     position: absolute;
@@ -56,9 +60,12 @@ a {
 #footer {
     z-index: 16448443;
     position: fixed;
-    right: 5px;
+    right: 25px;
     bottom: 5px;
     color: white;
+    padding: 0 15px;
+    border-radius: 3px;;
+    background-color: #6b5c5c72;
 }
 
 .small-text {
