@@ -72,9 +72,20 @@ a {
     font-size: 0.8rem;
 }
 
+.black {
+    color: #303035;
+}
+
+.center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
 .page-view {
     height:100vh;
-    border-style: solid;
+    border: 1px solid #303035;
     padding: 0;
     margin: 0;
 }

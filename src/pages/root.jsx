@@ -95,7 +95,7 @@ export default function Root() {
 
             {/* Content Page */}
             <div id="detail" hidden={href == '#/'}>
-                <Canvas shadows camera={{ position: [10, 12, 12], fov: 25 }} dpr={[1, 2]} >
+                <Canvas shadows camera={{ position: [10, 12, 12], fov: 25 }} gl={{ antialias: false }} dpr={[1, 1.5]}>
                     <Suspense fallback={<Html wrapperClass={'description'} ><p>Loading...</p></Html>}>
                         <Outlet />
                     </Suspense>

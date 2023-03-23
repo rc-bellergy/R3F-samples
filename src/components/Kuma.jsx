@@ -25,16 +25,17 @@ export function Model(props) {
     offset: 0
   }))
 
-  // Init animation
+  // Pause animation when init
   useEffect(() => {
     actions.Track.play().paused = true
   }, [])
 
-  // update animation by scroll
+  // update animation by scroll offset
   useFrame((state, delta) => {
     const action = actions.Track
     set({ offset: 1 - scroll.offset }) // offset: 1-0
     action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
+    console.log(action.time)
   })
 
   return <>
@@ -48,11 +49,9 @@ export function Model(props) {
 
     {/* Descriptions */}
     <Html wrapperClass={'drei-html'} fullscreen >
-      <div>
-        <h3 className={'page-view'}>Scroll Page 0</h3>
-        <h3 className={'page-view'}>Scroll Page 1</h3>
-        <h3 className={'page-view'}>Scroll Page 2</h3>
-      </div>
+        <div className={'page-view'}><h1 className={'center black'}>Scroll Page 0</h1></div>
+        <div className={'page-view'}><h1 className={'center black'}>Scroll Page 1</h1></div>
+        <div className={'page-view'}><h1 className={'center black'}>Scroll Page 2</h1></div>
     </Html>
   </>
 }
