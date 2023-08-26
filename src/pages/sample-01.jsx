@@ -17,7 +17,7 @@ export default function Sample01() {
     return <>
         <group position={[0, -0.5, 0]}>
             <Center top ref={suziRef}>
-                <Suzi rotation={[-0.63, 0, 0]} scale={2} />
+                {/* <Suzi rotation={[-0.63, 0, 0]} scale={2} /> */}
             </Center>
             <Center top position={[-2, 0, 2]} ref={sphereRef}>
                 <mesh castShadow>
